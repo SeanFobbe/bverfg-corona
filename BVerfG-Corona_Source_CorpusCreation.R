@@ -591,8 +591,8 @@ rechteckig.file <- gsub("01",
                                "_ANALYSE_01"),
                         rechteckig.file)
 
-rechteckig.file <- gsub("-1",
-                        "",
+rechteckig.file <- gsub("-1\\.pdf",
+                        "\\.pdf",
                         rechteckig.file)
 
 
