@@ -72,7 +72,7 @@
 #+ eval = FALSE
 
 rmarkdown::render(input = "BVerfG-Corona_Source_CorpusCreation.R",
-                  output_file = paste0("BVerfG-Corona_2021-01-08_CompilationReport.pdf"),
+                  output_file = paste0("BVerfG-Corona_2021-09-19_CompilationReport.pdf"),
                   envir = new.env())
 
 
@@ -122,7 +122,8 @@ tokens_locale <- "de_DE"
 
 #+
 #'### Ausgabe-Format
-dev <- c("pdf", "png")
+dev <- c("pdf",
+         "png")
 
 #'### DPI für Raster-Grafiken
 dpi <- 300
@@ -148,7 +149,10 @@ varremove <- c("text",
                "tokens",
                "typen",
                "saetze",
-               "version")
+               "version",
+               "pressemitteilung",
+               "zitiervorschlag",
+               "kurzbeschreibung")
 
 
 
@@ -236,6 +240,8 @@ zip.csv <- paste0("CE-BVerfG_",
                    datestamp,
                    "_DE_CSV_Datensatz.zip")
 
+print(zip.csv)
+
 
 link.csv <- paste0("https://zenodo.org/record/",
                    gsub("10\\.5281/zenodo\\.([0-9]+)",
@@ -244,6 +250,8 @@ link.csv <- paste0("https://zenodo.org/record/",
                    "/files/",
                    zip.csv,
                    "?download=1")
+
+print(link.csv)
 
 
 if(file.exists(zip.csv) == FALSE){
