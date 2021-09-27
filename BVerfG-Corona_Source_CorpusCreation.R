@@ -344,6 +344,7 @@ fwrite(data.frame(kwic),
 
 #+ BVerfG-Corona_01_LexicalDispersion_Rechteckig, fig.height = 12, fig.width = 12
 
+pdf("test-rechteckig.pdf", height = 16, width = 12)
 textplot_xray(kwic, scale = "relative")+
     labs(
         title = paste(datasetname,
@@ -351,7 +352,8 @@ textplot_xray(kwic, scale = "relative")+
                       datestamp,
                       "| Lexical Dispersion Plot"),
         caption = paste("DOI:",
-                        doi.version))+
+                        doi.version,
+                        "| Fobbe"))+
     theme(
         text = element_text(size = 14),
         plot.title = element_text(size = 14,
@@ -359,7 +361,7 @@ textplot_xray(kwic, scale = "relative")+
         legend.position = "none",
         plot.margin = margin(10, 20, 10, 10)
     )
-
+dev.off()
 
 
 
@@ -374,7 +376,8 @@ textplot_xray(kwic, scale = "relative")+
                       datestamp,
                       "| Lexical Dispersion Plot"),
         caption = paste("DOI:",
-                        doi.version))+
+                        doi.version,
+                        "| Fobbe"))+
     theme(
         text = element_text(size = 14),
         plot.title = element_text(size = 14,
