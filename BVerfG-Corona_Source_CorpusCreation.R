@@ -145,6 +145,7 @@ varremove <- c("text",
                "name",
                "ecli",
                "aktenzeichen",
+               "aktenzeichen_alle",
                "zeichen",
                "tokens",
                "typen",
@@ -364,7 +365,7 @@ textplot_xray(kwic,
 
 
 
-
+#'\newpage
 #'## A4-Format
 
 #+ BVerfG-Corona_01_LexicalDispersion_A4, fig.height = 11.7, fig.width = 8.3
@@ -529,7 +530,7 @@ unlink(zip.pdf)
 dt.corona <- dt.bverfg[doc_id %in% keep.txt]
 
 
-#'## Funktion anzeigen
+#'## Funktion anzeigen: f.fast.freqtable
 
 #+ results = "asis"
 print(f.fast.freqtable)
