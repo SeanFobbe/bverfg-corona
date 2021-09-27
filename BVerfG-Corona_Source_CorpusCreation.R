@@ -89,19 +89,19 @@ datasetname <- "BVerfG-Corona"
 #'## Datumsstempel
 #' Dieser Datumsstempel wird in alle Dateinamen eingefügt. Er richtet sich nach der Version des Stamm-Datensatzes.
 
-datestamp <- "2021-05-20"
+datestamp <- "2021-09-19"
 
 
 #'## DOI der konkreten Datensatz-Version (CE-BVerfG)
 #' Aus diesem Datensatz werden die Entscheidungen bezogen.
 
-doi.version.cebverfg <- "10.5281/zenodo.4765622" # checked
+doi.version.cebverfg <- "10.5281/zenodo.5514083" # checked
 
 
 #'## DOI der konkreten Datensatz-Version (BVerfG-Corona)
 #' In diesen Datensatz werden die Corona-relevanten Entscheidungen überführt.
 
-doi.version <- "10.5281/zenodo.4778817" # checked
+doi.version <- "10.5281/zenodo.5532937" # checked
 
 
 
