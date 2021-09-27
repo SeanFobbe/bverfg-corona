@@ -342,10 +342,10 @@ fwrite(data.frame(kwic),
 #+
 #'## Rechteckiges Format
 
-#+ BVerfG-Corona_01_LexicalDispersion_Rechteckig, fig.height = 12, fig.width = 12
+#+ BVerfG-Corona_01_LexicalDispersion_Rechteckig, fig.height = 16, fig.width = 12
 
-pdf("test-rechteckig.pdf", height = 16, width = 12)
-textplot_xray(kwic, scale = "relative")+
+textplot_xray(kwic,
+              scale = "relative")+
     labs(
         title = paste(datasetname,
                       "| Version",
@@ -361,7 +361,7 @@ textplot_xray(kwic, scale = "relative")+
         legend.position = "none",
         plot.margin = margin(10, 20, 10, 10)
     )
-dev.off()
+
 
 
 
@@ -369,7 +369,8 @@ dev.off()
 
 #+ BVerfG-Corona_01_LexicalDispersion_A4, fig.height = 11.7, fig.width = 8.3
 
-textplot_xray(kwic, scale = "relative")+
+textplot_xray(kwic,
+              scale = "relative")+
     labs(
         title = paste(datasetname,
                       "| Version",
@@ -404,8 +405,8 @@ length(keep.txt)
 #'## TXT-Datensatz herunterladen
 
 zip.txt <- paste0("CE-BVerfG_",
-                   datestamp,
-                   "_DE_TXT_Datensatz.zip")
+                  datestamp,
+                  "_DE_TXT_Datensatz.zip")
 
 
 link.txt <- paste0("https://zenodo.org/record/",
@@ -645,7 +646,7 @@ zip(paste(datasetname,
 
 
 #'# Kryptographische Hashes
-#' Dieses Modul berechnet für jedes ZIP-Archiv zwei Arten von Hashes: SHA2-256 und SHA3-512. Mit diesen kann die Authentizität der Dateien geprüft werden und es wird dokumentiert, dass sie aus diesem Source Code hervorgegangen sind. Die SHA-2 und SHA-3 Algorithmen gelten derzeit als sicher und ein SHA3-Hash mit 512 bit Länge ist nach derzeitigem Wissen auch gegenüber quantenkryptoanalytischen Verfahren hinreichend resistent.
+#' Dieses Modul berechnet für jedes ZIP-Archiv zwei Arten von Hashes: SHA2-256 und SHA3-512. Mit diesen kann die Authentizität der Dateien geprüft werden und es wird dokumentiert, dass sie aus diesem Source Code hervorgegangen sind. Die SHA-2 und SHA-3 Algorithmen sind äußerst resistent gegenüber *collision* und *pre-imaging* Angriffen, sie gelten derzeit als kryptographisch sicher. Ein SHA3-Hash mit 512 bit Länge ist nach Stand von Wissenschaft und Technik auch gegenüber quantenkryptoanalytischen Verfahren unter Einsatz des *Grover-Algorithmus* hinreichend resistent.
 
 #+
 #'## Liste der ZIP-Archive erstellen
