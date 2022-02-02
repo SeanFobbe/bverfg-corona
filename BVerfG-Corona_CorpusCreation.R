@@ -666,8 +666,18 @@ zip(file.path("output",
 
 #'## Verpacken der Source-Dateien
 
-files.source <- c(list.files(pattern = "Source"),
-                  "buttons")
+files.source <- c(list.files(pattern = "\\.R$|\\.toml$"),
+                  "CHANGELOG.md",
+                  "README.md",
+                  "R-fobbe-proto-package",
+                  "buttons",
+                  "tex",
+                  "gpg",
+                  list.files(pattern = "renv\\.lock|\\.Rprofile",
+                             all.files = TRUE),
+                  list.files("renv",
+                             pattern = "activate\\.R",
+                             full.names = TRUE))
 
 
 files.source <- grep("spin",
@@ -676,10 +686,9 @@ files.source <- grep("spin",
                      ignore.case = TRUE,
                      invert = TRUE)
 
-zip(paste(config$project$shortname,
-           config$cebverfg$date,
-           "Source_Files.zip",
-           sep = "_"),
+zip(paste(prefix.files,
+          "Source_Files.zip",
+          sep = "_"),
     files.source)
 
 
