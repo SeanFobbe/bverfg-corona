@@ -12,10 +12,13 @@ license.data = "Creative Commons Zero 1.0 Universal"
 license.code = "MIT-0"
 
 
-#=== Date of Main Data Set ===
+#=== Main Data Set ===
 # Dieser Datumsstempel wird in alle Dateinamen eingefügt. Er richtet sich nach der Version des Stamm-Datensatzes.
 
-date.main = "2022-02-01"
+cebverfg.date = "2022-02-01"
+doi.version.cebverfg = "10.5281/zenodo.5910152"
+
+
 
 #=== Digital Object Identifier (DOI) ===
 
@@ -24,6 +27,23 @@ doi.data.version = "???"
 
 doi.software.concept = "10.5281/zenodo.4459415"
 doi.software.version = "???"
+
+
+
+
+
+#'## DOI der konkreten Datensatz-Version (CE-BVerfG)
+#' Aus diesem Datensatz werden die Entscheidungen bezogen.
+
+doi.version.cebverfg <- "10.5281/zenodo.5514083" # checked
+
+
+#'## DOI der konkreten Datensatz-Version (BVerfG-Corona)
+#' In diesen Datensatz werden die Corona-relevanten Entscheidungen überführt.
+
+doi.version <- "10.5281/zenodo.5532937" # checked
+
+
 
 
 
