@@ -655,9 +655,8 @@ file.copy(rechteckig.path,
 #+
 #'## Verpacken der Analyse-Dateien
 
-zip(file.path("output",
-              paste0(prefix.files,
-                     "_DE_ANALYSE.zip")),
+zip(paste0(prefix.files,
+           "_DE_ANALYSE.zip"),
     basename(dir.analysis))
 
 
