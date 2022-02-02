@@ -54,7 +54,7 @@ print(begin.script)
 #+
 #'## Packages Laden
 
-library(doParallel)   # Parallelisierung
+
 library(ggplot2)      # Fortgeschrittene Datenvisualisierung
 library(rmarkdown)    # Wissenschaftliches Reporting
 library(knitr)        # Wissenschaftliches Reporting
@@ -62,7 +62,8 @@ library(kableExtra)   # Verbesserte Kable Tabellen
 library(data.table)   # Fortgeschrittene Datenverarbeitung
 library(quanteda)     # Fortgeschrittenes Natural Language Processing
 library(quanteda.textplots) # Quanteda: Diagramme
-
+library(future)       # Parallelisierung mit Futures
+library(future.apply) # Apply-Funtionen für Futures
 
 
 #'## Zusätzliche Funktionen einlesen
