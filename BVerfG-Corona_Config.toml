@@ -16,10 +16,10 @@ license.code = "MIT-0"
 # Digital Object Identifier (DOI)
 
 doi.data.concept = "10.5281/zenodo.4459405"
-doi.data.version = ""
+doi.data.version = "???"
 
 doi.software.concept = "10.5281/zenodo.4459415"
-doi.software.version = ""
+doi.software.version = "???"
 
 
 
