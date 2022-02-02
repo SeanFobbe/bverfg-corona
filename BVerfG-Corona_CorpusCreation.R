@@ -36,21 +36,15 @@ cat(readLines("README.md"),
 
 
 config$cebverfg$doi$data$version
-config$doi$version
 
 
 
-
-#'## DOI der konkreten Datensatz-Version (CE-BVerfG)
-#' 
-
-config$cebverfg$doi$data$version <- "10.5281/zenodo.5514083" # checked
 
 
 #'## DOI der konkreten Datensatz-Version (BVerfG-Corona)
-#' In diesen Datensatz werden die Corona-relevanten Entscheidungen überführt.
+#' 
 
-doi.version <- "10.5281/zenodo.5532937" # checked
+config$doi$data$version <- "10.5281/zenodo.5532937" # checked
 
 
 
@@ -591,7 +585,7 @@ textplot_xray(kwic,
                       config$cebverfg$date,
                       "| Lexical Dispersion Plot"),
         caption = paste("DOI:",
-                        doi.version,
+                        config$doi$data$version,
                         "| Fobbe"))+
     theme(
         text = element_text(size = 14),
@@ -616,7 +610,7 @@ textplot_xray(kwic,
                       config$cebverfg$date,
                       "| Lexical Dispersion Plot"),
         caption = paste("DOI:",
-                        doi.version,
+                        config$doi$data$version,
                         "| Fobbe"))+
     theme(
         text = element_text(size = 14),
