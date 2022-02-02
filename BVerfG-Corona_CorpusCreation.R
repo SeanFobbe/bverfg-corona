@@ -616,33 +616,21 @@ f.fast.freqtable(dt.corona,
 
 #'# Diagramm Kopieren
 
-rechteckig <- list.files(dir.analysis,
-                         pattern = "Rechteckig.*\\.pdf",
-                         full.names = TRUE)
+rechteckig.source <- list.files(dir.analysis,
+                                pattern = "Rechteckig.*\\.pdf",
+                                full.names = TRUE)
 
-rechteckig.path <- gsub("//",
-                        "/",
-                        rechteckig)
+rechteckig.destination <- file.path("output",
+                                    gsub("BVerfG-Corona",
+                                         paste0(prefix.files, "_ANALYSE"),
+                                         basename(rechteckig.source)))
 
-rechteckig.file <- gsub(".+//(.+)",
-                        "\\1",
-                        rechteckig)
+rechteckig.destination <- gsub("-1\\.pdf",
+                               "\\.pdf",
+                               rechteckig.destination)
 
-rechteckig.file <- gsub("01",
-                        paste0(config$cebverfg$date,
-                               "_ANALYSE_01"),
-                        rechteckig.file)
-
-rechteckig.file <- gsub("-1\\.pdf",
-                        "\\.pdf",
-                        rechteckig.file)
-
-
-file.copy(rechteckig.path,
-          file.path("output",
-                    rechteckig.file))
-
-
+file.copy(rechteckig.source,
+          rechteckig.destination)
 
 
 
