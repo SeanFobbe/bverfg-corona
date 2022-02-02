@@ -66,30 +66,14 @@ library(future)       # Parallelisierung mit Futures
 library(future.apply) # Apply-Funtionen für Futures
 
 
+
+
+
 #'## Zusätzliche Funktionen einlesen
 #' **Hinweis:** Die hieraus verwendeten Funktionen werden jeweils vor der ersten Benutzung in vollem Umfang angezeigt um den Lesefluss zu verbessern.
 
-source("functions/f.bverfg.extract.content.R")
-source("functions/f.bverfg.extract.meta.R")
-
-source("R-fobbe-proto-package/f.remove.specialunderline.R")
-source("R-fobbe-proto-package/f.linkextract.R")
-
-source("R-fobbe-proto-package/f.hyphen.remove.R")
-source("R-fobbe-proto-package/f.year.iso.R")
 source("R-fobbe-proto-package/f.fast.freqtable.R")
-
-#source("R-fobbe-proto-package/f.lingsummarize.iterator.R") # to be deprecated
-#source("R-fobbe-proto-package/f.dopar.spacyparse.R") # to be deprecated
-#source("R-fobbe-proto-package/f.dopar.multihashes.R") # to be deprecated
-#source("R-fobbe-proto-package/f.dopar.pdfextract.R") # to be deprecated
-
-source("R-fobbe-proto-package/f.future_lingsummarize.R")
 source("R-fobbe-proto-package/f.future_multihashes.R")
-source("R-fobbe-proto-package/f.future_pdf_to_txt.R")
-source("R-fobbe-proto-package/f.future_spacyparse.R")
-
-#source("General_Source_Functions.R") # deprecated
 
 
 
@@ -114,8 +98,9 @@ unlink(dir.analysis,
 unlink(dirs,
        recursive = TRUE)
 
-files.delete <- list.files(pattern = "\\.zip|\\.pdf|\\.txt|\\.html",
+files.delete <- list.files(pattern = "\\.zip|\\.jpe?g|\\.png|\\.gif|\\.pdf|\\.txt|\\.bib|\\.csv|\\.spin\\.|\\.log|\\.html?",
                            ignore.case = TRUE)
+
 
 unlink(files.delete)
 
