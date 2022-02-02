@@ -522,24 +522,25 @@ link.pdf <- paste0("https://zenodo.org/record/",
                    zip.pdf,
                    "?download=1")
 
+zip.pdf.rel <- file.path("data", zip.pdf)
 
-if(file.exists(zip.pdf) == FALSE){
+
+if(file.exists(zip.pdf.rel) == FALSE){
 
     download.file(link.pdf,
-                  zip.pdf)
+                  zip.pdf.rel)
 
 }
 
 
 
 #'## ZIP-Archiv entpacken
-unzip(zip.pdf)
+unzip(zip.pdf.rel)
 
 
 #'## Corona-Entscheidungen verpacken
 
-zip(paste(config$project$shortname,
-          config$cebverfg$date,
+zip(paste(prefix.files,
           "DE_PDF_Datensatz.zip",
           sep = "_"),
     keep.pdf)
@@ -551,9 +552,6 @@ files.pdf <- list.files(pattern = ".pdf")
 
 unlink(files.pdf)
 
-
-#'## ZIP-Archiv löschen
-unlink(zip.pdf)
 
 
 
