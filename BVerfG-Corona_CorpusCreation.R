@@ -459,24 +459,26 @@ link.txt <- paste0("https://zenodo.org/record/",
                    zip.txt,
                    "?download=1")
 
+zip.txt.rel <- file.path("data", zip.txt)
 
-if(file.exists(file.path("data", zip.txt)) == FALSE){
+
+
+if(file.exists(zip.txt.rel) == FALSE){
 
     download.file(link.txt,
-                  file.path("data", zip.txt))
+                  zip.txt.rel)
 
 }
 
 
 #'## ZIP-Archiv entpacken
-unzip(zip.txt,
+unzip(zip.txt.rel,
       exdir = ".")
 
 
 #'## Corona-Entscheidungen verpacken
 
-zip(paste(config$project$shortname,
-          config$cebverfg$date,
+zip(paste(files.prefix,
           "DE_TXT_Datensatz.zip",
           sep = "_"),
     keep.txt)
