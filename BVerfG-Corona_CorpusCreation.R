@@ -229,13 +229,6 @@ latexdefs <- c("%===========================\n% Definitionen\n%=================
                       "}"),
                paste0("\\newcommand{\\softwareversionurldoi}{https://doi.org/",
                       config$doi$software$version,
-                      "}"),
-               "\n%-----Additional DOIs-----",
-               paste0("\\newcommand{\\aktenzeichenurldoi}{https://doi.org/",
-                      config$doi$aktenzeichen,
-                      "}"),
-               paste0("\\newcommand{\\personendatenurldoi}{https://doi.org/",
-                      config$doi$personendaten,
                       "}"))
 
 
@@ -418,9 +411,7 @@ textplot_xray(kwic,
                       "| Version",
                       config$cebverfg$date,
                       "| Lexical Dispersion Plot"),
-        caption = paste("DOI:",
-                        config$doi$data$version,
-                        "| Fobbe"))+
+        caption = caption)+
     theme(
         text = element_text(size = 14),
         plot.title = element_text(size = 14,
@@ -443,9 +434,7 @@ textplot_xray(kwic,
                       "| Version",
                       config$cebverfg$date,
                       "| Lexical Dispersion Plot"),
-        caption = paste("DOI:",
-                        config$doi$data$version,
-                        "| Fobbe"))+
+        caption = caption)+
     theme(
         text = element_text(size = 14),
         plot.title = element_text(size = 14,
@@ -817,6 +806,12 @@ warnings()
 system2("openssl", "version", stdout = TRUE)
 
 sessionInfo()
+
+
+
+#+ results = "asis", echo = FALSE
+cat(readLines("CHANGELOG.md"),
+    sep = "\n")
 
 
 #'# Literaturverzeichnis
