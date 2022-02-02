@@ -478,9 +478,10 @@ unzip(zip.txt.rel,
 
 #'## Corona-Entscheidungen verpacken
 
-zip(paste(prefix.files,
-          "DE_TXT_Datensatz.zip",
-          sep = "_"),
+zip(file.path("output",
+              paste(prefix.files,
+                    "DE_TXT_Datensatz.zip",
+                    sep = "_")),
     keep.txt)
 
 
@@ -489,10 +490,6 @@ zip(paste(prefix.files,
 files.txt <- list.files(pattern = ".txt")
 
 unlink(files.txt)
-
-
-#'## ZIP-Archiv löschen
-unlink(zip.txt)
 
 
 
