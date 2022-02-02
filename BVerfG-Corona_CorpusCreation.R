@@ -34,15 +34,9 @@ cat(readLines("README.md"),
 
 #'# Parameter
 
-#+
-#'## Name des Datensatzes
-datasetname <- "BVerfG-Corona"
 
 
-#'## Datumsstempel
-#' Dieser Datumsstempel wird in alle Dateinamen eingefügt. Er richtet sich nach der Version des Stamm-Datensatzes.
 
-datestamp <- "2021-09-19"
 
 
 #'## DOI der konkreten Datensatz-Version (CE-BVerfG)
@@ -194,8 +188,7 @@ setDTthreads(threads = fullCores)
 #'## Datumsstempel
 #' Dieser Datumsstempel wird in alle Dateinamen eingefügt. Er wird am Anfang des Skripts gesetzt, für den den Fall, dass die Laufzeit die Datumsbarriere durchbricht.
 
-datestamp <- Sys.Date()
-print(datestamp)
+
 
 
 #'## Datum und Uhrzeit (Beginn)
@@ -336,7 +329,7 @@ print(caption)
 
 prefix.files <- paste0(config$project$shortname,
                  "_",
-                 datestamp)
+                 config$date$cebverfg)
 print(prefix.files)
 
 
@@ -344,7 +337,7 @@ print(prefix.files)
 
 prefix.figuretitle <- paste(config$project$shortname,
                             "| Version",
-                            datestamp)
+                            config$date$cebverfg)
 
 
 #'### Quanteda-Optionen setzen
@@ -366,7 +359,7 @@ latexdefs <- c("%===========================\n% Definitionen\n%=================
                       "}"),
                "\n%-----Version-----",
                paste0("\\newcommand{\\version}{",
-                      datestamp,
+                      config$date$cebverfg,
                       "}"),
                "\n%-----Titles-----",
                paste0("\\newcommand{\\datatitle}{",
@@ -481,7 +474,7 @@ setDTthreads(threads = fullCores)
 
 
 zip.csv <- paste0("CE-BVerfG_",
-                   datestamp,
+                   config$date$cebverfg,
                    "_DE_CSV_Datensatz.zip")
 
 print(zip.csv)
@@ -556,12 +549,12 @@ kwic <- kwic(tokens,
 
 #'## KWIC-Tabelle speichern
 
-file.kwic.sansdate <- paste(datasetname,
+file.kwic.sansdate <- paste(config$project$shortname,
                             "02_KeywordsInContext.csv",
                             sep = "_")
 
-file.kwic.date <- paste(datasetname,
-                        datestamp,
+file.kwic.date <- paste(config$project$shortname,
+                        config$date$cebverfg,
                         "ANALYSE_02_KeywordsInContext.csv",
                         sep = "_")
 
@@ -591,9 +584,9 @@ fwrite(data.frame(kwic),
 textplot_xray(kwic,
               scale = "relative")+
     labs(
-        title = paste(datasetname,
+        title = paste(config$project$shortname,
                       "| Version",
-                      datestamp,
+                      config$date$cebverfg,
                       "| Lexical Dispersion Plot"),
         caption = paste("DOI:",
                         doi.version,
@@ -616,9 +609,9 @@ textplot_xray(kwic,
 textplot_xray(kwic,
               scale = "relative")+
     labs(
-        title = paste(datasetname,
+        title = paste(config$project$shortname,
                       "| Version",
-                      datestamp,
+                      config$date$cebverfg,
                       "| Lexical Dispersion Plot"),
         caption = paste("DOI:",
                         doi.version,
@@ -649,7 +642,7 @@ length(keep.txt)
 #'## TXT-Datensatz herunterladen
 
 zip.txt <- paste0("CE-BVerfG_",
-                  datestamp,
+                  config$date$cebverfg,
                   "_DE_TXT_Datensatz.zip")
 
 
@@ -676,8 +669,8 @@ unzip(zip.txt)
 
 #'## Corona-Entscheidungen verpacken
 
-zip(paste(datasetname,
-          datestamp,
+zip(paste(config$project$shortname,
+          config$date$cebverfg,
           "DE_TXT_Datensatz.zip",
           sep = "_"),
     keep.txt)
@@ -712,7 +705,7 @@ length(keep.pdf)
 #'## PDF-Datensatz herunterladen
 
 zip.pdf <- paste0("CE-BVerfG_",
-                   datestamp,
+                   config$date$cebverfg,
                    "_DE_PDF_Datensatz.zip")
 
 
@@ -740,8 +733,8 @@ unzip(zip.pdf)
 
 #'## Corona-Entscheidungen verpacken
 
-zip(paste(datasetname,
-          datestamp,
+zip(paste(config$project$shortname,
+          config$date$cebverfg,
           "DE_PDF_Datensatz.zip",
           sep = "_"),
     keep.pdf)
@@ -797,7 +790,7 @@ print(varlist)
 
 #'## Frequenztabellen erstellen
 
-prefix <- paste0(datasetname,
+prefix <- paste0(config$project$shortname,
                  "_00_Frequenztabelle_var-")
 
 
@@ -831,7 +824,7 @@ rechteckig.file <- gsub(".+//(.+)",
                         rechteckig)
 
 rechteckig.file <- gsub("01",
-                        paste0(datestamp,
+                        paste0(config$date$cebverfg,
                                "_ANALYSE_01"),
                         rechteckig.file)
 
@@ -855,9 +848,9 @@ file.copy(rechteckig.path,
 #+
 #'## Verpacken der Analyse-Dateien
 
-zip(paste0(datasetname,
+zip(paste0(config$project$shortname,
            "_",
-           datestamp,
+           config$date$cebverfg,
            "_DE_",
            basename(outputdir),
            ".zip"),
@@ -879,8 +872,8 @@ files.source <- grep("spin",
                      ignore.case = TRUE,
                      invert = TRUE)
 
-zip(paste(datasetname,
-           datestamp,
+zip(paste(config$project$shortname,
+           config$date$cebverfg,
            "Source_Files.zip",
            sep = "_"),
     files.source)
@@ -918,8 +911,8 @@ multihashes$index <- seq_len(multihashes[,.N])
 #'\newpage
 #'## In Datei schreiben
 fwrite(multihashes,
-       paste(datasetname,
-             datestamp,
+       paste(config$project$shortname,
+             config$date$cebverfg,
              "KryptographischeHashes.csv",
              sep = "_"),
        na = "NA")
@@ -971,7 +964,7 @@ kable(multihashes[,.(index,sha3.512)],
 #'## Datumsstempel
 #' Hinweis: der Datumsstempel weicht vom Zeitpunkt der tatsächlichen Erstellung des Datensatzes ab, weil sich der Datumsstempel nach dem Tag des Abrufs des CE-BVerfG richtet.
 
-print(datestamp)
+print(config$date$cebverfg)
 
 #'## Datum und Uhrzeit (Anfang)
 print(begin.script)
