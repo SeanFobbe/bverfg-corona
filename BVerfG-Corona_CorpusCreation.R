@@ -34,108 +34,6 @@ cat(readLines("README.md"),
 
 
 
-#'## Frequenztabellen: Ignorierte Variablen
-
-#' Diese Variablen werden bei der Erstellung der Frequenztabellen nicht berücksichtigt.
-
-varremove <- c("text",
-               "eingangsnummer",
-               "datum",
-               "doc_id",
-               "seite",
-               "name",
-               "ecli",
-               "aktenzeichen",
-               "aktenzeichen_alle",
-               "zeichen",
-               "tokens",
-               "typen",
-               "saetze",
-               "version",
-               "pressemitteilung",
-               "zitiervorschlag",
-               "kurzbeschreibung")
-
-
-
-#'# Vorbereitung
-
-
-
-#'## Datum und Uhrzeit (Beginn)
-
-begin.script <- Sys.time()
-print(begin.script)
-
-
-#'## Ordner für Analyse-Ergebnisse erstellen
-dir.create(dir.analysis)
-
-
-#'## Packages
-
-library(doParallel)   # Parallelisierung
-library(ggplot2)      # Fortgeschrittene Datenvisualisierung
-library(rmarkdown)    # Wissenschaftliches Reporting
-library(knitr)        # Wissenschaftliches Reporting
-library(kableExtra)   # Verbesserte Kable Tabellen
-library(data.table)   # Fortgeschrittene Datenverarbeitung
-library(quanteda)     # Fortgeschrittenes Natural Language Processing
-library(quanteda.textplots) # Quanteda: Diagramme
-
-
-#'## Zusätzliche Funktionen einlesen
-#' **Hinweis:** Die hieraus verwendeten Funktionen werden jeweils vor der ersten Benutzung in vollem Umfang angezeigt um den Lesefluss zu verbessern.
-
-source("General_Source_Functions.R")
-
-
-#'## Quanteda-Optionen setzen
-quanteda_options(tokens_locale = tokens_locale)
-
-
-#'## Knitr Optionen setzen
-knitr::opts_chunk$set(fig.path = dir.analysis,
-                      dev = dev,
-                      dpi = dpi,
-                      fig.align = fig.align)
-
-
-
-#'## Vollzitate statistischer Software
-knitr::write_bib(c(.packages()),
-                 "packages.bib")
-
-
-
-#'## Parallelisierung aktivieren
-#' Parallelisierung wird zur Datenanalyse mittels **quanteda** und **data.table** verwendet. Die Anzahl Threads wird automatisch auf das verfügbare Maximum des Systems gesetzt, kann aber auch nach Belieben auf das eigene System angepasst werden. Die Parallelisierung kann deaktiviert werden, indem die Variable **fullCores** auf 1 gesetzt wird.
-#'
-#' Die hier verwendete Funktion **makeForkCluster()** ist viel schneller als die Alternativen, funktioniert aber nur auf Unix-basierten Systemen (Linux, MacOS).
-
-#+
-#'### Anzahl logischer Kerne bestimmen
-
-fullCores <- detectCores()
-print(fullCores)
-
-#'### Quanteda
-quanteda_options(threads = fullCores) 
-
-#+
-#'### Data.table
-setDTthreads(threads = fullCores)  
-
-
-
-
-
-
-
-
-
-
-
 
 #'# Vorbereitung
 
@@ -156,22 +54,14 @@ print(begin.script)
 #+
 #'## Packages Laden
 
-library(RcppTOML)     # Verarbeitung von TOML-Format
-library(mgsub)        # Mehrfache simultane String-Substitutions
-library(httr)         # HTTP-Werkzeuge
-library(rvest)        # HTML/XML-Extraktion
-library(knitr)        # Professionelles Reporting
-library(kableExtra)   # Verbesserte Kable Tabellen
-library(pdftools)     # Verarbeitung von PDF-Dateien
-#library(doParallel)   # Parallelisierung; to be deprecated
+library(doParallel)   # Parallelisierung
 library(ggplot2)      # Fortgeschrittene Datenvisualisierung
-library(scales)       # Skalierung von Diagrammen
+library(rmarkdown)    # Wissenschaftliches Reporting
+library(knitr)        # Wissenschaftliches Reporting
+library(kableExtra)   # Verbesserte Kable Tabellen
 library(data.table)   # Fortgeschrittene Datenverarbeitung
-library(readtext)     # TXT-Dateien einlesen
-library(quanteda)     # Fortgeschrittene Computerlinguistik
-library(spacyr)       # Linguistische Annotationen
-library(future)       # Parallelisierung mit Futures
-library(future.apply) # Apply-Funtionen für Futures
+library(quanteda)     # Fortgeschrittenes Natural Language Processing
+library(quanteda.textplots) # Quanteda: Diagramme
 
 
 
@@ -727,7 +617,7 @@ print(f.fast.freqtable)
 
 
 #'## Ignorierte Variablen
-print(varremove)
+print(config$freqtable$ignore)
 
 
 
@@ -736,7 +626,7 @@ print(varremove)
 varlist <- names(dt.corona)
 
 varlist <- setdiff(varlist,
-                   varremove)
+                   config$freqtable$ignore)
 
 print(varlist)
 
