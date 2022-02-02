@@ -279,15 +279,6 @@ setDTthreads(threads = fullCores)
 
 
 
-
-
-
-
-
-
-
-
-
 #'# Stamm-Datensatz einlesen (CE-BVerfG)
 #' Der Stamm-Datensatz ist der \enquote{Corpus der Entscheidungen des Bundesverfassungsgerichts} (CE-BVerfG). Dieser enthält alle vom Bundesverfassungsgericht seit 1998 veröffentlichten Entscheidungen. Dessen **aktuellste** Version ist immer über diesen Digital Object Identifier (DOI) abrufbar: \url{https://doi.org/10.5281/zenodo.3902658}
 
