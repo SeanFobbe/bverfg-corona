@@ -13,70 +13,23 @@
 #'    includes:
 #'      in_header: tex/Preamble_DE.tex
 #'      before_body: [temp/BVerfG-Corona_Definitions.tex, tex/BVerfG-Corona_CompilationTitle.tex]
-#'bibliography: packages.bib
+#'bibliography: temp/packages.bib
 #'nocite: '@*'
 #' ---
 
 
+#+ echo = FALSE 
+knitr::opts_chunk$set(echo = TRUE,
+                      warning = TRUE,
+                      message = TRUE)
 
 
 #'\newpage
-#+
-#'# Einleitung
-#'
-#+
-#'## Überblick
-#' Dieses R-Skript lädt den Corpus der Entscheidungen des Bundesverfassungsgerichts (CE-BVerfG) herunter, untersucht ihn auf mit SARS-CoV-2 assoziiertem Vokabular und speichert relevante Entscheidungen.  Es ist die Grundlage für den Datensatz \textbf{\datatitle\ (\datashort )}.
-#'
-#' Alle mit diesem Skript erstellten Datensätze werden dauerhaft kostenlos und urheberrechtsfrei auf Zenodo, dem wissenschaftlichen Archiv des CERN, veröffentlicht. Alle Versionen sind mit einem persistenten Digital Object Identifier (DOI) versehen. Die neueste Version des Datensatzes ist immer über den Link der Concept DOI erreichbar: \dataconcepturldoi
 
 
-
-#+
-#'## Funktionsweise
-
-#' Primäre Endprodukte des Skripts sind folgende ZIP-Archive:
-#' \begin{enumerate}
-#' \item Alle Corona-relevanten Entscheidungen im PDF-Format
-#' \item Alle Corona-relevanten Entscheidungen im TXT-Format
-#' \item Alle Analyse-Ergebnisse (Tabellen als CSV, Grafiken als PDF und PNG)
-#' \item Der Source Code und alle weiteren Quelldaten
-#' \end{enumerate}
-#'
-#' Zusätzlich werden für alle ZIP-Archive kryptographische Signaturen (SHA2-256 und SHA3-512) berechnet und in einer CSV-Datei hinterlegt. Es kann optional ein PDF-Bericht erstellt werden (siehe unter "Kompilierung").
-
-
-#+
-#'## Systemanforderungen
-#' Das Skript in seiner veröffentlichten Form kann nur unter Linux ausgeführt werden, da es Linux-spezifische Optimierungen (z.B. Fork Cluster) und Shell-Kommandos (z.B. OpenSSL) nutzt. Das Skript wurde unter Fedora Linux entwickelt und getestet. Die zur Kompilierung benutzte Version entnehmen Sie bitte dem **sessionInfo()**-Ausdruck am Ende dieses Berichts.
-#'
-#' In der Standard-Einstellung wird das Skript vollautomatisch die maximale Anzahl an Rechenkernen/Threads auf dem System zu nutzen. Wenn die Anzahl Threads (Variable "fullCores") auf 1 gesetzt wird, ist die Parallelisierung deaktiviert.
-#'
-#' Auf der Festplatte sollten 4 GB Speicherplatz vorhanden sein.
-#' 
-#' Um die PDF-Berichte kompilieren zu können benötigen Sie das R package **rmarkdown**, eine vollständige Installation von \LaTeX\ und alle in der Präambel-TEX-Datei angegebenen \LaTeX\ Packages.
-
-
-
-#'\newpage
-#+
-#'## Kompilierung
-
-#' Mit der Funktion **render()** von **rmarkdown** kann der **vollständige Datensatz**  kompiliert und das Skript mitsamt seinen Rechenergebnisse in ein gut lesbares PDF-Format überführt werden.
-#'
-#' Alle Kommentare sind im roxygen2-Stil gehalten. Das Skript kann daher auch **ohne render()** regulär als R-Skript ausgeführt werden. Es wird in diesem Fall kein PDF-Bericht erstellt und Diagramme werden nicht abgespeichert.
-
-#' 
-#' Um den vollständigen Datensatz zu kompilieren und einen PDF-Bericht zu erstellen, kopieren Sie bitte alle im Source-Archiv bereitgestellten Dateien in einen leeren Ordner und führen mit R diesen Befehl aus:
-
-#+ eval = FALSE
-
-rmarkdown::render(input = "BVerfG-Corona_Source_CorpusCreation.R",
-                  output_file = paste0("BVerfG-Corona_2021-09-19_CompilationReport.pdf"),
-                  envir = new.env())
-
-
-
+#+ results = "asis", echo = FALSE
+cat(readLines("README.md"),
+    sep = "\n")
 
 
 #'# Parameter
