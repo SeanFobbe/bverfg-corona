@@ -34,34 +34,6 @@ cat(readLines("README.md"),
 
 
 
-
-
-#'## Verzeichnis für Analyse-Ergebnisse
-#' Hinweis: Muss mit einem Schrägstrich enden!
-dir.analysis <- paste0(getwd(),
-                    "/ANALYSE/") 
-
-
-
-#'## Optionen: Quanteda
-tokens_locale <- "de_DE"
-
-
-#'## Optionen: Knitr
-
-#+
-#'### Ausgabe-Format
-dev <- c("pdf",
-         "png")
-
-#'### DPI für Raster-Grafiken
-dpi <- 300
-
-#'### Ausrichtung von Grafiken im Compilation Report
-fig.align <- "center"
-
-
-
 #'## Frequenztabellen: Ignorierte Variablen
 
 #' Diese Variablen werden bei der Erstellung der Frequenztabellen nicht berücksichtigt.
