@@ -703,30 +703,49 @@ files.zip <- list.files(pattern = "\\.zip$",
                         ignore.case = TRUE)
 
 
-#'## Funktion anzeigen
-#+ results = "asis"
-print(f.dopar.multihashes)
+#'## Funktion anzeigen: future_multihashes
+
+print(f.future_multihashes)
+
 
 #'## Hashes berechnen
-multihashes <- f.dopar.multihashes(files.zip)
+
+
+if(config$parallel$multihashes == TRUE){
+
+    plan("multicore",
+         workers = fullCores)
+    
+}else{
+
+    plan("sequential")
+
+     }
+
+
+multihashes <- f.future_multihashes(files.zip)
+
+
 
 
 #'## In Data Table umwandeln
 setDT(multihashes)
 
+setnames(multihashes,
+         old = "x",
+         new = "filename")
 
 
 #'## Index hinzufügen
 multihashes$index <- seq_len(multihashes[,.N])
 
-
 #'\newpage
 #'## In Datei schreiben
 fwrite(multihashes,
-       paste(config$project$shortname,
-             config$cebverfg$date,
-             "KryptographischeHashes.csv",
-             sep = "_"),
+       file.path("output",
+                 paste(prefix.files,
+                       "KryptographischeHashes.csv",
+                       sep = "_")),
        na = "NA")
 
 
@@ -762,6 +781,21 @@ kable(multihashes[,.(index,sha3.512)],
                 "p{13cm}"),
       booktabs = TRUE,
       longtable = TRUE)
+
+
+
+
+#'# Aufräumen
+
+files.output <- list.files(pattern = "\\.zip")
+
+output.destination <- file.path("output",
+                                 files.output)
+
+print(files.output)
+
+file.rename(files.output,
+            output.destination)
 
 
 
