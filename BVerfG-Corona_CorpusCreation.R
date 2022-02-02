@@ -478,10 +478,9 @@ unzip(zip.txt.rel,
 
 #'## Corona-Entscheidungen verpacken
 
-zip(file.path("output",
-              paste(prefix.files,
-                    "DE_TXT_Datensatz.zip",
-                    sep = "_")),
+zip(paste(prefix.files,
+          "DE_TXT_Datensatz.zip",
+          sep = "_"),
     keep.txt)
 
 
@@ -541,10 +540,9 @@ unzip(zip.pdf.rel,
 
 #'## Corona-Entscheidungen verpacken
 
-zip(file.path("output",
-              paste(prefix.files,
-                    "DE_PDF_Datensatz.zip",
-                    sep = "_")),
+zip(paste(prefix.files,
+          "DE_PDF_Datensatz.zip",
+          sep = "_"),
     keep.pdf)
 
 
