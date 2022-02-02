@@ -469,7 +469,8 @@ if(file.exists(file.path("data", zip.txt)) == FALSE){
 
 
 #'## ZIP-Archiv entpacken
-unzip(zip.txt)
+unzip(zip.txt,
+      exdir = ".")
 
 
 #'## Corona-Entscheidungen verpacken
