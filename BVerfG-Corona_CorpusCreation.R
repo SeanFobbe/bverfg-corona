@@ -366,19 +366,19 @@ file.kwic.sansdate <- paste(config$project$shortname,
                             "02_KeywordsInContext.csv",
                             sep = "_")
 
-file.kwic.date <- paste(config$project$shortname,
-                        config$cebverfg$date,
+file.kwic.date <- paste(prefix.files,
                         "ANALYSE_02_KeywordsInContext.csv",
                         sep = "_")
 
 
 fwrite(data.frame(kwic),
-       paste0(dir.analysis,
+       file.path(dir.analysis,
               file.kwic.sansdate))
 
 
 fwrite(data.frame(kwic),
-       file.kwic.date)
+       file.path("output",
+                 file.kwic.date))
 
 
 
@@ -397,9 +397,7 @@ fwrite(data.frame(kwic),
 textplot_xray(kwic,
               scale = "relative")+
     labs(
-        title = paste(config$project$shortname,
-                      "| Version",
-                      config$cebverfg$date,
+        title = paste(prefix.figuretitle,
                       "| Lexical Dispersion Plot"),
         caption = caption)+
     theme(
@@ -420,9 +418,7 @@ textplot_xray(kwic,
 textplot_xray(kwic,
               scale = "relative")+
     labs(
-        title = paste(config$project$shortname,
-                      "| Version",
-                      config$cebverfg$date,
+        title = paste(prefix.figuretitle,
                       "| Lexical Dispersion Plot"),
         caption = caption)+
     theme(
@@ -464,10 +460,10 @@ link.txt <- paste0("https://zenodo.org/record/",
                    "?download=1")
 
 
-if(file.exists(zip.txt) == FALSE){
+if(file.exists(file.path(zip.txt)) == FALSE){
 
     download.file(link.txt,
-                  zip.txt)
+                  file.path(zip.txt))
 
 }
 
