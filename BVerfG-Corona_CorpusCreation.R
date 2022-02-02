@@ -535,14 +535,16 @@ if(file.exists(zip.pdf.rel) == FALSE){
 
 
 #'## ZIP-Archiv entpacken
-unzip(zip.pdf.rel)
+unzip(zip.pdf.rel,
+      exdir = ".")
 
 
 #'## Corona-Entscheidungen verpacken
 
-zip(paste(prefix.files,
-          "DE_PDF_Datensatz.zip",
-          sep = "_"),
+zip(file.path("output",
+              paste(prefix.files,
+                    "DE_PDF_Datensatz.zip",
+                    sep = "_")),
     keep.pdf)
 
 
