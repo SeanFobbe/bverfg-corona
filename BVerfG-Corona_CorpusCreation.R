@@ -613,6 +613,7 @@ f.fast.freqtable(dt.corona,
 
 
 
+
 #'# Diagramm Kopieren
 
 rechteckig <- list.files(dir.analysis,
