@@ -35,7 +35,8 @@ cat(readLines("README.md"),
 #'# Parameter
 
 
-
+config$doi$version$cebverfg
+config$doi$version
 
 
 
@@ -329,7 +330,7 @@ print(caption)
 
 prefix.files <- paste0(config$project$shortname,
                  "_",
-                 config$date$cebverfg)
+                 config$cebverfg$date)
 print(prefix.files)
 
 
@@ -337,7 +338,7 @@ print(prefix.files)
 
 prefix.figuretitle <- paste(config$project$shortname,
                             "| Version",
-                            config$date$cebverfg)
+                            config$cebverfg$date)
 
 
 #'### Quanteda-Optionen setzen
@@ -359,7 +360,7 @@ latexdefs <- c("%===========================\n% Definitionen\n%=================
                       "}"),
                "\n%-----Version-----",
                paste0("\\newcommand{\\version}{",
-                      config$date$cebverfg,
+                      config$cebverfg$date,
                       "}"),
                "\n%-----Titles-----",
                paste0("\\newcommand{\\datatitle}{",
@@ -474,7 +475,7 @@ setDTthreads(threads = fullCores)
 
 
 zip.csv <- paste0("CE-BVerfG_",
-                   config$date$cebverfg,
+                   config$cebverfg$date,
                    "_DE_CSV_Datensatz.zip")
 
 print(zip.csv)
@@ -554,7 +555,7 @@ file.kwic.sansdate <- paste(config$project$shortname,
                             sep = "_")
 
 file.kwic.date <- paste(config$project$shortname,
-                        config$date$cebverfg,
+                        config$cebverfg$date,
                         "ANALYSE_02_KeywordsInContext.csv",
                         sep = "_")
 
@@ -586,7 +587,7 @@ textplot_xray(kwic,
     labs(
         title = paste(config$project$shortname,
                       "| Version",
-                      config$date$cebverfg,
+                      config$cebverfg$date,
                       "| Lexical Dispersion Plot"),
         caption = paste("DOI:",
                         doi.version,
@@ -611,7 +612,7 @@ textplot_xray(kwic,
     labs(
         title = paste(config$project$shortname,
                       "| Version",
-                      config$date$cebverfg,
+                      config$cebverfg$date,
                       "| Lexical Dispersion Plot"),
         caption = paste("DOI:",
                         doi.version,
@@ -642,7 +643,7 @@ length(keep.txt)
 #'## TXT-Datensatz herunterladen
 
 zip.txt <- paste0("CE-BVerfG_",
-                  config$date$cebverfg,
+                  config$cebverfg$date,
                   "_DE_TXT_Datensatz.zip")
 
 
@@ -670,7 +671,7 @@ unzip(zip.txt)
 #'## Corona-Entscheidungen verpacken
 
 zip(paste(config$project$shortname,
-          config$date$cebverfg,
+          config$cebverfg$date,
           "DE_TXT_Datensatz.zip",
           sep = "_"),
     keep.txt)
@@ -705,7 +706,7 @@ length(keep.pdf)
 #'## PDF-Datensatz herunterladen
 
 zip.pdf <- paste0("CE-BVerfG_",
-                   config$date$cebverfg,
+                   config$cebverfg$date,
                    "_DE_PDF_Datensatz.zip")
 
 
@@ -734,7 +735,7 @@ unzip(zip.pdf)
 #'## Corona-Entscheidungen verpacken
 
 zip(paste(config$project$shortname,
-          config$date$cebverfg,
+          config$cebverfg$date,
           "DE_PDF_Datensatz.zip",
           sep = "_"),
     keep.pdf)
@@ -824,7 +825,7 @@ rechteckig.file <- gsub(".+//(.+)",
                         rechteckig)
 
 rechteckig.file <- gsub("01",
-                        paste0(config$date$cebverfg,
+                        paste0(config$cebverfg$date,
                                "_ANALYSE_01"),
                         rechteckig.file)
 
@@ -850,7 +851,7 @@ file.copy(rechteckig.path,
 
 zip(paste0(config$project$shortname,
            "_",
-           config$date$cebverfg,
+           config$cebverfg$date,
            "_DE_",
            basename(outputdir),
            ".zip"),
@@ -873,7 +874,7 @@ files.source <- grep("spin",
                      invert = TRUE)
 
 zip(paste(config$project$shortname,
-           config$date$cebverfg,
+           config$cebverfg$date,
            "Source_Files.zip",
            sep = "_"),
     files.source)
@@ -912,7 +913,7 @@ multihashes$index <- seq_len(multihashes[,.N])
 #'## In Datei schreiben
 fwrite(multihashes,
        paste(config$project$shortname,
-             config$date$cebverfg,
+             config$cebverfg$date,
              "KryptographischeHashes.csv",
              sep = "_"),
        na = "NA")
@@ -964,7 +965,7 @@ kable(multihashes[,.(index,sha3.512)],
 #'## Datumsstempel
 #' Hinweis: der Datumsstempel weicht vom Zeitpunkt der tatsächlichen Erstellung des Datensatzes ab, weil sich der Datumsstempel nach dem Tag des Abrufs des CE-BVerfG richtet.
 
-print(config$date$cebverfg)
+print(config$cebverfg$date)
 
 #'## Datum und Uhrzeit (Anfang)
 print(begin.script)
