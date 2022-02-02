@@ -289,8 +289,8 @@ setDTthreads(threads = fullCores)
 
 
 zip.csv <- paste0("CE-BVerfG_",
-                   config$cebverfg$date,
-                   "_DE_CSV_Datensatz.zip")
+                  config$cebverfg$date,
+                  "_DE_CSV_Datensatz.zip")
 
 print(zip.csv)
 
@@ -306,21 +306,19 @@ link.csv <- paste0("https://zenodo.org/record/",
 print(link.csv)
 
 
-if(file.exists(zip.csv) == FALSE){
+if (file.exists(file.path("data", zip.csv)) == FALSE){
 
     download.file(link.csv,
-                  zip.csv)
+                  file.path("data", zip.csv))
 
 }
 
 
 #'## CSV-Datei einlesen
 dt.bverfg <- fread(cmd = paste("unzip -cq",
-                               zip.csv))
+                               file.path("data", zip.csv)))
 
 
-#'## ZIP-Archiv löschen
-unlink(zip.csv)
 
 
 #'## Korpus-Objekt erstellen
