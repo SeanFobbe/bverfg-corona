@@ -30,9 +30,6 @@ cores.max = true  # Ob die maximale Anzahl an logischen Kernen genutzt werden so
 cores.number = 8   # Die Anzahl Rechtenkerne, die verwendet werden soll; wird nur berücksichtigt falls "cores.max" auf "false" steht
 
 
-parallel.extractPDF = true
-parallel.lingsummarize = true
-parallel.spacyparse = false
 parallel.multihashes = true
 
 
