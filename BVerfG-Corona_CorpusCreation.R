@@ -35,15 +35,16 @@ cat(readLines("README.md"),
 #'# Parameter
 
 
-config$doi$version$cebverfg
+config$cebverfg$doi$data$version
 config$doi$version
 
 
 
-#'## DOI der konkreten Datensatz-Version (CE-BVerfG)
-#' Aus diesem Datensatz werden die Entscheidungen bezogen.
 
-doi.version.cebverfg <- "10.5281/zenodo.5514083" # checked
+#'## DOI der konkreten Datensatz-Version (CE-BVerfG)
+#' 
+
+config$cebverfg$doi$data$version <- "10.5281/zenodo.5514083" # checked
 
 
 #'## DOI der konkreten Datensatz-Version (BVerfG-Corona)
@@ -484,7 +485,7 @@ print(zip.csv)
 link.csv <- paste0("https://zenodo.org/record/",
                    gsub("10\\.5281/zenodo\\.([0-9]+)",
                         "\\1",
-                        doi.version.cebverfg),
+                        config$cebverfg$doi$data$version),
                    "/files/",
                    zip.csv,
                    "?download=1")
@@ -650,7 +651,7 @@ zip.txt <- paste0("CE-BVerfG_",
 link.txt <- paste0("https://zenodo.org/record/",
                    gsub("10\\.5281/zenodo\\.([0-9]+)",
                         "\\1",
-                        doi.version.cebverfg),
+                        config$cebverfg$doi$data$version),
                    "/files/",
                    zip.txt,
                    "?download=1")
@@ -713,7 +714,7 @@ zip.pdf <- paste0("CE-BVerfG_",
 link.pdf <- paste0("https://zenodo.org/record/",
                    gsub("10\\.5281/zenodo\\.([0-9]+)",
                         "\\1",
-                        doi.version.cebverfg),
+                        config$cebverfg$doi$data$version),
                    "/files/",
                    zip.pdf,
                    "?download=1")
