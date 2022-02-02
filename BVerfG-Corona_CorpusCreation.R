@@ -460,10 +460,10 @@ link.txt <- paste0("https://zenodo.org/record/",
                    "?download=1")
 
 
-if(file.exists(file.path(zip.txt)) == FALSE){
+if(file.exists(file.path("data", zip.txt)) == FALSE){
 
     download.file(link.txt,
-                  file.path(zip.txt))
+                  file.path("data", zip.txt))
 
 }
 
