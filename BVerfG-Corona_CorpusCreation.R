@@ -32,27 +32,13 @@ cat(readLines("README.md"),
     sep = "\n")
 
 
-#'# Parameter
-
-
-config$cebverfg$doi$data$version
-
-
-
-
-
-#'## DOI der konkreten Datensatz-Version (BVerfG-Corona)
-#' 
-
-config$doi$data$version <- "10.5281/zenodo.5532937" # checked
-
 
 
 
 
 #'## Verzeichnis für Analyse-Ergebnisse
 #' Hinweis: Muss mit einem Schrägstrich enden!
-outputdir <- paste0(getwd(),
+dir.analysis <- paste0(getwd(),
                     "/ANALYSE/") 
 
 
@@ -111,7 +97,7 @@ print(begin.script)
 
 
 #'## Ordner für Analyse-Ergebnisse erstellen
-dir.create(outputdir)
+dir.create(dir.analysis)
 
 
 #'## Packages
@@ -137,7 +123,7 @@ quanteda_options(tokens_locale = tokens_locale)
 
 
 #'## Knitr Optionen setzen
-knitr::opts_chunk$set(fig.path = outputdir,
+knitr::opts_chunk$set(fig.path = dir.analysis,
                       dev = dev,
                       dpi = dpi,
                       fig.align = fig.align)
@@ -556,7 +542,7 @@ file.kwic.date <- paste(config$project$shortname,
 
 
 fwrite(data.frame(kwic),
-       paste0(outputdir,
+       paste0(dir.analysis,
               file.kwic.sansdate))
 
 
@@ -797,7 +783,7 @@ f.fast.freqtable(dt.corona,
                  output.list = FALSE,
                  output.kable = TRUE,
                  output.csv = TRUE,
-                 outputdir = outputdir,
+                 outputdir = dir.analysis,
                  prefix = prefix,
                  align = c("p{5cm}",
                            rep("r", 4)))
@@ -808,7 +794,7 @@ f.fast.freqtable(dt.corona,
 
 #'# Diagramm Kopieren
 
-rechteckig <- list.files(outputdir, pattern = "Rechteckig.*\\.pdf",
+rechteckig <- list.files(dir.analysis, pattern = "Rechteckig.*\\.pdf",
                          full.names = TRUE)
 
 rechteckig.path <- gsub("//",
@@ -848,9 +834,9 @@ zip(paste0(config$project$shortname,
            "_",
            config$cebverfg$date,
            "_DE_",
-           basename(outputdir),
+           basename(dir.analysis),
            ".zip"),
-    basename(outputdir))
+    basename(dir.analysis))
 
 
 
