@@ -16,7 +16,7 @@ license.code = "MIT-0"
 # Dieser Datumsstempel wird in alle Dateinamen eingefügt. Er richtet sich nach der Version des Stamm-Datensatzes.
 
 cebverfg.date = "2022-02-01"
-doi.version.cebverfg = "10.5281/zenodo.5910152"
+cebverfg.doi.data.version = "10.5281/zenodo.5910152"
 
 
 
