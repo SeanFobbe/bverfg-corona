@@ -478,7 +478,7 @@ unzip(zip.txt.rel,
 
 #'## Corona-Entscheidungen verpacken
 
-zip(paste(files.prefix,
+zip(paste(prefix.files,
           "DE_TXT_Datensatz.zip",
           sep = "_"),
     keep.txt)
