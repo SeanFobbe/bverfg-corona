@@ -54,6 +54,7 @@ print(begin.script)
 #+
 #'## Packages Laden
 
+library(magick)       # Cropping von PNG-Dateien
 library(RcppTOML)     # Verarbeitung von TOML-Format
 library(ggplot2)      # Fortgeschrittene Datenvisualisierung
 library(rmarkdown)    # Wissenschaftliches Reporting
