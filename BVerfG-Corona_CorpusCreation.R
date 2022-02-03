@@ -34,15 +34,16 @@ cat(readLines("README.md"),
 
 
 
-
+#+
 #'# Vorbereitung
 
+#+
 #'## Datumsstempel
 #' Dieser Datumsstempel wird in alle Dateinamen eingefügt. Er wird am Anfang des Skripts gesetzt, für den den Fall, dass die Laufzeit die Datumsbarriere durchbricht.
 
 
 
-
+#+
 #'## Datum und Uhrzeit (Beginn)
 begin.script <- Sys.time()
 print(begin.script)
