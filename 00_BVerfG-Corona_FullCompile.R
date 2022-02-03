@@ -6,6 +6,7 @@
 datestamp <- Sys.Date()
 
 library(rmarkdown)
+library(RcppTOML)
 
 
 
@@ -34,13 +35,15 @@ unlink("data", recursive = TRUE)
 #' 
 #' Um den **vollständigen Datensatz** zu kompilieren und einen PDF-Bericht zu erstellen, kopieren Sie bitte alle im Source-Archiv bereitgestellten Dateien in einen leeren Ordner und führen mit R diesen Befehl aus:
 
+config <- parseTOML("BVerfG-Corona_Config.toml")
+
 
 begin.compreport <- Sys.time()
 
 rmarkdown::render(input = "BVerfG-Corona_CorpusCreation.R",
                   envir = new.env(),
                   output_file = paste0("BVerfG-Corona_",
-                                       datestamp,
+                                       config$cebverfg$date,
                                        "_CompilationReport.pdf"),
                   output_dir = "output")
 
