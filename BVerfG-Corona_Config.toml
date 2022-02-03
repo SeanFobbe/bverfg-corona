@@ -22,11 +22,12 @@ cebverfg.doi.data.version = "10.5281/zenodo.5910152" # Aus diesem Datensatz werd
 
 #=== Digital Object Identifier (DOI) ===
 
-doi.data.concept = "10.5281/zenodo.4459405" # In diesen Datensatz werden die Corona-relevanten Entscheidungen überführt.
-doi.data.version = "???" # In diesen Datensatz werden die Corona-relevanten Entscheidungen überführt.
+# In diesen Datensatz werden die Corona-relevanten Entscheidungen überführt.
+doi.data.concept = "10.5281/zenodo.4459405" # checked
+doi.data.version = "10.5281/zenodo.5959979" # checked
 
-doi.software.concept = "10.5281/zenodo.4459415"
-doi.software.version = "???"
+doi.software.concept = "10.5281/zenodo.4459415" # checked
+doi.software.version = "10.5281/zenodo.5959980" # checked
 
 
 
