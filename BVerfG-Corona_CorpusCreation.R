@@ -390,12 +390,51 @@ fwrite(data.frame(kwic),
 #'Lexical Dispersion Plots zeigen mit einem vertikalen Strich an, an welcher Stelle in einem Dokument sich ein Token befindet. Alle Dokumente sind auf eine Länge von 1.0 normalisiert, d.h. ein Wert von 0.5 heißt immer, dass sich das Token in der Mitte des jeweiligen Dokumentes befindet. Viele und/oder dicke Striche deuten auf eine große Häufigkeit des Tokens hin.
 
 
+#'## Aufbereitung der Labels
+#' Die Labels müssen speziell aufbereitet werden, damit sie in der Grafik noch sinnvoll anzeigbar sind. Insbesondere die Dateinamen mit Entscheidungsnamen sind zu lang.
+
+
+kwic.display <- kwic
+
+split <- str_split(kwic$docname, pattern = "_")
+
+f.recombine <- function(x){
+
+    recombine <- paste0(x[2],
+                        " - ",
+                        x[4],
+                        " ",
+                        x[5],
+                        " ",
+                        x[6],
+                        "/",
+                        x[7],
+                        " - ",
+                        x[3] )
+
+    recombine <- gsub("S$", "Senat", recombine)
+    recombine <- gsub("K$", "Kammer", recombine)
+
+    return(recombine)
+    
+}
+
+filenames.display <- unlist(lapply(split, f.recombine))
+kwic.display$docname <- filenames.display
+
+split.attr <- str_split(attr(attr(kwic, "ntoken"), "names"), pattern = "_")
+attrs.display <- unlist(lapply(split.attr, f.recombine))
+attr(attr(kwic.display, "ntoken"), "names") <- attrs.display
+
+
+
+
 #+
 #'## Rechteckiges Format
 
 #+ BVerfG-Corona_01_LexicalDispersion_Rechteckig, fig.height = 16, fig.width = 12
 
-textplot_xray(kwic,
+textplot_xray(kwic.display,
               scale = "relative")+
     labs(
         title = paste(prefix.figuretitle,
@@ -416,14 +455,14 @@ textplot_xray(kwic,
 
 #+ BVerfG-Corona_01_LexicalDispersion_A4, fig.height = 11.7, fig.width = 8.3
 
-textplot_xray(kwic,
+textplot_xray(kwic.display,
               scale = "relative")+
     labs(
         title = paste(prefix.figuretitle,
                       "| Lexical Dispersion Plot"),
         caption = caption)+
     theme(
-        text = element_text(size = 14),
+        text = element_text(size = 9),
         plot.title = element_text(size = 14,
                                   face = "bold"),
         legend.position = "none",
