@@ -3,6 +3,11 @@
 ## Version \version
 
 - Vollständige Aktualisierung der Daten
+- Umbenennung des run scripts und der Konfigurations-Datei
+
+## Version 2022-02-01
+
+- Vollständige Aktualisierung der Daten
 - Strenge Versionskontrolle von R packages mit **renv**
 - Kompilierung jetzt detailliert konfigurierbar, insbesondere die Parallelisierung
 - Parallelisierung nun vollständig mit *future* statt mit *foreach* und *doParallel*
