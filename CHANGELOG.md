@@ -3,6 +3,7 @@
 ## Version \version
 
 - Vollständige Aktualisierung der Daten
+- Diagramme sind deutlich überarbeitet und die Labels verschönert worden
 - Umbenennung des run scripts und der Konfigurations-Datei
 
 ## Version 2022-02-01
