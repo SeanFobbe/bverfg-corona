@@ -35,7 +35,7 @@ unlink("data", recursive = TRUE)
 #' 
 #' Um den **vollständigen Datensatz** zu kompilieren und einen PDF-Bericht zu erstellen, kopieren Sie bitte alle im Source-Archiv bereitgestellten Dateien in einen leeren Ordner und führen mit R diesen Befehl aus:
 
-config <- parseTOML("BVerfG-Corona_Config.toml")
+config <- parseTOML("config.toml")
 
 
 begin.compreport <- Sys.time()
