@@ -80,4 +80,6 @@ freqtable.ignore = ["text",
                	    "version",
                	    "pressemitteilung",
                	    "zitiervorschlag",
-               	    "kurzbeschreibung"]
+               	    "kurzbeschreibung",
+		    "url_pdf",
+		    "url_html"]
