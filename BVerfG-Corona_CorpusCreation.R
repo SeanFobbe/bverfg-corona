@@ -390,6 +390,7 @@ fwrite(data.frame(kwic),
 #'Lexical Dispersion Plots zeigen mit einem vertikalen Strich an, an welcher Stelle in einem Dokument sich ein Token befindet. Alle Dokumente sind auf eine Länge von 1.0 normalisiert, d.h. ein Wert von 0.5 heißt immer, dass sich das Token in der Mitte des jeweiligen Dokumentes befindet. Viele und/oder dicke Striche deuten auf eine große Häufigkeit des Tokens hin.
 
 
+#+
 #'## Aufbereitung der Labels
 #' Die Labels müssen speziell aufbereitet werden, damit sie in der Grafik noch sinnvoll anzeigbar sind. Insbesondere die Dateinamen mit Entscheidungsnamen sind zu lang.
 
@@ -432,7 +433,7 @@ attr(attr(kwic.display, "ntoken"), "names") <- attrs.display
 #+
 #'## Rechteckiges Format
 
-#+ BVerfG-Corona_01_LexicalDispersion_Rechteckig, fig.height = 16, fig.width = 12
+#+ BVerfG-Corona_01_LexicalDispersion_Rechteckig, fig.height = 20, fig.width = 12
 
 textplot_xray(kwic.display,
               scale = "relative")+
