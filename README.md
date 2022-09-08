@@ -73,3 +73,22 @@ source("run_project.R")
 ```
 
 
+ 
+
+## Weitere Open Access Veröffentlichungen (Fobbe)
+
+Website — https://www.seanfobbe.de
+
+Open Data  —  https://zenodo.org/communities/sean-fobbe-data/
+
+Source Code  —  https://zenodo.org/communities/sean-fobbe-code/
+
+Volltexte regulärer Publikationen  —  https://zenodo.org/communities/sean-fobbe-publications/
+
+
+
+## Kontakt
+
+Fehler gefunden? Anregungen? Kommentieren Sie gerne im Issue Tracker auf GitHub oder schreiben Sie mir eine E-Mail an [fobbe-data@posteo.de](fobbe-data@posteo.de)
+
+
