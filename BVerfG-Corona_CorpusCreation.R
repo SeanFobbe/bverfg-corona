@@ -130,7 +130,7 @@ knitr::write_bib(c(.packages()),
 
 #+
 #'### Konfiguration einlesen
-config <- parseTOML("BVerfG-Corona_Config.toml")
+config <- parseTOML("config.toml")
 
 #'### Konfiguration anzeigen
 print(config)
