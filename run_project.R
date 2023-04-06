@@ -33,7 +33,7 @@ unlink("data", recursive = TRUE)
 #+
 #'# Datensatz 
 #' 
-#' Um den **vollständigen Datensatz** zu kompilieren und einen PDF-Bericht zu erstellen, kopieren Sie bitte alle im Source-Archiv bereitgestellten Dateien in einen leeren Ordner und führen mit R diesen Befehl aus:
+
 
 config <- parseTOML("config.toml")
 
