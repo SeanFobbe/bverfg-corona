@@ -66,7 +66,7 @@ library(quanteda)     # Fortgeschrittenes Natural Language Processing
 library(quanteda.textplots) # Quanteda: Diagramme
 library(future)       # Parallelisierung mit Futures
 library(future.apply) # Apply-Funtionen für Futures
-
+library(zip)
 
 
 
