@@ -89,7 +89,9 @@ dir.analysis <- paste0(getwd(),
 
 dirs <- c("output",
           "temp",
-          "files")
+          "files",
+          "txt",
+          "pdf")
 
 
 
