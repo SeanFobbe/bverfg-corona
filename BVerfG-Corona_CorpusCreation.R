@@ -308,17 +308,17 @@ link.csv <- paste0("https://zenodo.org/record/",
 print(link.csv)
 
 
-if (file.exists(file.path("data", zip.csv)) == FALSE){
+if (file.exists(file.path("files", zip.csv)) == FALSE){
 
     download.file(link.csv,
-                  file.path("data", zip.csv))
+                  file.path("files", zip.csv))
 
 }
 
 
 #'## CSV-Datei einlesen
 dt.bverfg <- fread(cmd = paste("unzip -cq",
-                               file.path("data", zip.csv)))
+                               file.path("files", zip.csv)))
 
 
 
@@ -501,7 +501,7 @@ link.txt <- paste0("https://zenodo.org/record/",
                    zip.txt,
                    "?download=1")
 
-zip.txt.rel <- file.path("data", zip.txt)
+zip.txt.rel <- file.path("files", zip.txt)
 
 
 
@@ -563,7 +563,7 @@ link.pdf <- paste0("https://zenodo.org/record/",
                    zip.pdf,
                    "?download=1")
 
-zip.pdf.rel <- file.path("data", zip.pdf)
+zip.pdf.rel <- file.path("files", zip.pdf)
 
 
 if(file.exists(zip.pdf.rel) == FALSE){
