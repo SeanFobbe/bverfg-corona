@@ -3,6 +3,15 @@
 ## Version \version
 
 - Vollständige Aktualisierung der Daten
+- Gesamte Laufzeitumgebung nun mit Docker versionskontrolliert
+- Funktionen werden nun nicht mehr aus einem Submodule bezogen, sondern sind direkt im Projekt verankert
+- Vereinfachung der Konfigurations-Datei
+
+
+
+## Version 2022-08-24
+
+- Vollständige Aktualisierung der Daten
 - Diagramme sind deutlich überarbeitet und die Labels verschönert worden
 - Umbenennung des run scripts und der Konfigurations-Datei
 
