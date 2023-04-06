@@ -517,22 +517,19 @@ if(file.exists(zip.txt.rel) == FALSE){
 
 #'## ZIP-Archiv entpacken
 unzip(zip.txt.rel,
-      exdir = ".")
+      files = keep.txt,
+      exdir = "txt")
 
 
 #'## Corona-Entscheidungen verpacken
 
-zip(paste(prefix.files,
-          "DE_TXT_Datensatz.zip",
-          sep = "_"),
-    keep.txt)
+zip(paste0("output/",
+           prefix.files,
+           "_DE_TXT_Datensatz.zip"),
+    list.files("txt", full.names = TRUE),
+    mode = "cherry-pick")
 
 
-#'## TXT-Dateien löschen
-
-files.txt <- list.files(pattern = ".txt")
-
-unlink(files.txt)
 
 
 
@@ -579,22 +576,18 @@ if(file.exists(zip.pdf.rel) == FALSE){
 
 #'## ZIP-Archiv entpacken
 unzip(zip.pdf.rel,
-      exdir = ".")
+      files = keep.pdf,
+      exdir = "pdf")
 
 
 #'## Corona-Entscheidungen verpacken
 
-zip(paste(prefix.files,
-          "DE_PDF_Datensatz.zip",
-          sep = "_"),
-    keep.pdf)
 
-
-#'## PDF-Dateien löschen
-
-files.pdf <- list.files(pattern = ".pdf")
-
-unlink(files.pdf)
+zip(paste0("output/",
+           prefix.files,
+           "_DE_PDF_Datensatz.zip"),
+    list.files("pdf", full.names = TRUE),
+    mode = "cherry-pick")
 
 
 
