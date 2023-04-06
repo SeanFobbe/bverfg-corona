@@ -694,25 +694,10 @@ zip(paste0(prefix.files,
 
 #'## Verpacken der Source-Dateien
 
-files.source <- c(list.files(pattern = "\\.R$|\\.toml$"),
-                  "CHANGELOG.md",
-                  "README.md",
-                  "R-fobbe-proto-package",
-                  "buttons",
-                  "tex",
-                  "gpg",
-                  list.files(pattern = "renv\\.lock|\\.Rprofile",
-                             all.files = TRUE),
-                  list.files("renv",
-                             pattern = "activate\\.R",
-                             full.names = TRUE))
+files.source <- c(system2("git", "ls-files", stdout = TRUE),
+                       ".git")
 
 
-files.source <- grep("spin",
-                     files.source,
-                     value = TRUE,
-                     ignore.case = TRUE,
-                     invert = TRUE)
 
 zip(paste(prefix.files,
           "Source_Files.zip",
