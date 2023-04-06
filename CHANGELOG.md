@@ -6,6 +6,7 @@
 - Gesamte Laufzeitumgebung nun mit Docker versionskontrolliert
 - Funktionen werden nun nicht mehr aus einem Submodule bezogen, sondern sind direkt im Projekt verankert
 - Vereinfachung der Konfigurations-Datei
+- ZIP-Archiv mit Source Code wird nun aus dem Git-Manifest generiert
 
 
 
