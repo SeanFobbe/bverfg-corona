@@ -679,7 +679,8 @@ file.copy(rechteckig.source,
 #+
 #'## Verpacken der Analyse-Dateien
 
-zip(paste0(prefix.files,
+zip(paste0("output/",
+           prefix.files,
            "_DE_ANALYSE.zip"),
     basename(dir.analysis))
 
@@ -694,9 +695,9 @@ files.source <- c(system2("git", "ls-files", stdout = TRUE),
 
 
 
-zip(paste(prefix.files,
-          "Source_Files.zip",
-          sep = "_"),
+zip(paste0("output/",
+          prefix.files,
+          "_Source_Files.zip"),
     files.source)
 
 
