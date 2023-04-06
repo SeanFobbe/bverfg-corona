@@ -797,18 +797,6 @@ kable(multihashes[,.(index,sha3.512)],
 
 
 
-#'# Aufräumen
-
-files.output <- list.files(pattern = "\\.zip")
-
-output.destination <- file.path("output",
-                                 files.output)
-
-print(files.output)
-
-file.rename(files.output,
-            output.destination)
-
 
 
 
