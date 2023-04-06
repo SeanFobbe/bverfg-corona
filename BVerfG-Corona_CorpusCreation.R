@@ -74,8 +74,8 @@ library(future.apply) # Apply-Funtionen für Futures
 #'## Zusätzliche Funktionen einlesen
 #' **Hinweis:** Die hieraus verwendeten Funktionen werden jeweils vor der ersten Benutzung in vollem Umfang angezeigt um den Lesefluss zu verbessern.
 
-source("R-fobbe-proto-package/f.fast.freqtable.R")
-source("R-fobbe-proto-package/f.future_multihashes.R")
+source("functions/f.fast.freqtable.R")
+source("functions/f.future_multihashes.R")
 
 
 
