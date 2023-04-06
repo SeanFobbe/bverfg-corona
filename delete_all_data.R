@@ -3,7 +3,7 @@
 targets::tar_destroy(ask = FALSE)
 
 
-delete <- c("files/",
+delete1 <- c("files/",
             "netzwerke",
             "temp/",
             "analysis/",
@@ -11,5 +11,10 @@ delete <- c("files/",
             "data")
 
 
+delete2 <- list.files(pattern = "\\.zip|\\.xml|\\.jpe?g|\\.png|\\.gif|\\.pdf|\\.epub|\\.bib|\\.csv|\\.dtd|\\.spin\\.|\\.log|\\.gpg|\\.html",
+                           ignore.case = TRUE)
+
+
+delete <- c(delete1, delete2)
 
 unlink(delete, recursive = TRUE)
