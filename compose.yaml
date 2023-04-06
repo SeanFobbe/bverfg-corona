@@ -1,0 +1,12 @@
+version: "3.9"
+
+services:
+  bverfg-corona:
+    container_name: bverfg-corona
+    image: bverfg-corona:4.2.2
+    tty: true
+    volumes:
+      - .:/bverfg-corona:z
+      - ./gitconfig:/etc/gitconfig:z
+    environment:
+      - TZ=Europe/Berlin
