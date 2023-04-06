@@ -709,7 +709,9 @@ zip(paste0("output/",
 
 #+
 #'## Liste der ZIP-Archive erstellen
-files.zip <- list.files(pattern = "\\.zip$",
+files.zip <- list.files("output",
+                        pattern = "\\.zip$",
+                        full.names = TRUE,
                         ignore.case = TRUE)
 
 
