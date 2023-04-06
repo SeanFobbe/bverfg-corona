@@ -89,7 +89,7 @@ dir.analysis <- paste0(getwd(),
 
 dirs <- c("output",
           "temp",
-          "data")
+          "files")
 
 
 
@@ -101,7 +101,7 @@ unlink(dir.analysis,
 unlink(dirs,
        recursive = TRUE)
 
-files.delete <- list.files(pattern = "\\.zip|\\.jpe?g|\\.png|\\.gif|\\.pdf|\\.txt|\\.bib|\\.csv|\\.spin\\.|\\.log|\\.html?",
+files.delete <- list.files(pattern = "\\.zip|\\.jpe?g|\\.png|\\.gif|\\.pdf|\\.bib|\\.csv|\\.spin\\.|\\.log|\\.html?",
                            ignore.case = TRUE)
 
 
