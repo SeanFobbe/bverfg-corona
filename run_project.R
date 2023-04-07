@@ -14,7 +14,7 @@ library(RcppTOML)
 #'# Aufräumen
 
 
-files.delete <- list.files(pattern = "\\.zip|\\.jpe?g|\\.png|\\.gif|\\.pdf|\\.txt|\\.bib|\\.csv|\\.spin\\.|\\.log|\\.html?",
+files.delete <- list.files(pattern = "\\.zip|\\.jpe?g|\\.png|\\.gif|\\.pdf|\\.bib|\\.csv|\\.spin\\.|\\.log|\\.html?",
                            ignore.case = TRUE)
 
 unlink(files.delete)
