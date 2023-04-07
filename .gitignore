@@ -4,10 +4,8 @@ temp/
 output/
 analyse/
 
-XML/
-PDF/
-TXT/
-EPUB/
+txt/
+pdf/
 
 *.zip
 *.xml
