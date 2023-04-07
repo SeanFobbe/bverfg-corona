@@ -35,6 +35,10 @@ software.version = "10.5281/zenodo.7807021" # checked
 
 
 
+[debug]
+
+cleanrun = true # falls true, alle Ergebnisse des vorherigen Runs automatisch löschen
+
 
 
 [cores]
