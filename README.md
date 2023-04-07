@@ -27,54 +27,131 @@ Zusätzlich werden für alle ZIP-Archive kryptographische Signaturen (SHA2-256 u
 
 ## Systemanforderungen
 
-### Betriebssystem
+- [Docker](https://docs.docker.com/get-docker/)
+- [Docker Compose](https://docs.docker.com/compose/install/)
+- 1 GB Speicherplatz auf Festplatte
+- Multi-core CPU empfohlen (8 cores/16 threads für die Referenzdatensätze). 
 
-Das Skript in seiner veröffentlichten Form kann nur unter **Linux** ausgeführt werden, da es Linux-spezifische Optimierungen (z.B. Fork Cluster) und Shell-Kommandos (z.B. OpenSSL) nutzt. Das Skript wurde unter Fedora Linux entwickelt und getestet. Die zur Kompilierung benutzte Version entnehmen Sie bitte dem **sessionInfo()**-Ausdruck am Ende des jeweiligen Compilation Reports.
-
-### Software
-
-Sie müssen die [Programmiersprache R](https://www.r-project.org/) installiert haben. Starten Sie danach eine Session im Ordner des Projekts, Sie sollten automatisch zur Installation aller packages in der empfohlenen Version aufgefordert werden. Andernfalls führen Sie bitte folgenden Befehl aus:
-
-```
-renv::restore()
-```
-
-Um die PDF Reports zu kompilieren benötigen Sie eine LaTeX-Installation. Sie können diese auf Fedora wie folgt installieren:
-
-```
-sudo dnf install texlive-scheme-full
-```
-
-Alternativ können sie das R package **tinytex** installieren.
-
-
-### Parallelisierung
 
 In der Standard-Einstellung wird das Skript vollautomatisch die maximale Anzahl an Rechenkernen/Threads auf dem System zu nutzen. Die Anzahl der verwendeten Kerne kann in der Konfigurationsatei angepasst werden. Wenn die Anzahl Threads auf 1 gesetzt wird, ist die Parallelisierung deaktiviert.
 
-### Speicherplatz
-
-Auf der Festplatte sollten 4 GB Speicherplatz vorhanden sein.
 
 
 
+## Anleitung
 
 
+### Schritt 1: Ordner vorbereiten
 
-## Kompilierung
-
-Alle Kommentare sind im roxygen2-Stil gehalten. Der Code kann daher auch **ohne render()** als reguläres R-Skript ausgeführt werden. Es wird in diesem Fall kein PDF-Bericht erstellt und Diagramme werden nicht abgespeichert.
- 
-Um den **vollständigen Datensatz** zu kompilieren, sowie den Compilation Report zu erstellen, kopieren Sie bitte alle im Source-Archiv bereitgestellten Dateien in einen leeren Ordner (!) und führen mit R diesen Befehl aus:
-
+Kopieren Sie bitte den gesamten Source Code in einen leeren Ordner (!), beispielsweise mit:
 
 ```
-source("run_project.R")
+$ git clone https://github.com/seanfobbe/bverfg-corona.git
+```
+
+Verwenden Sie immer einen separaten und *leeren* Ordner für die Kompilierung. Die Skripte löschen innerhalb von bestimmten Unterordnern (`files/`, `temp/`, `analysis` und `output/`) alle Dateien die den Datensatz verunreinigen könnten --- aber auch nur dort.
+
+
+
+### Schritt 2: Docker Image erstellen
+
+Ein Docker Image stellt ein komplettes Betriebssystem mit der gesamten verwendeten Software automatisch zusammen. Nutzen Sie zur Erstellung des Images einfach:
+
+```
+$ bash docker-build-image.sh
 ```
 
 
- 
 
+
+### Schritt 3: Datensatz kompilieren
+
+Falls Sie zuvor den Datensatz schon einmal kompiliert haben (ob erfolgreich oder erfolglos), können Sie mit folgendem Befehl alle Arbeitsdaten im Ordner löschen:
+
+```
+$ Rscript delete_all_data.R
+```
+
+Den vollständigen Datensatz kompilieren Sie mit folgendem Skript:
+
+```
+$ bash docker-run-project.sh
+```
+
+
+
+
+
+### Ergebnis
+
+Der Datensatz und alle weiteren Ergebnisse sind nun im Ordner `output/` abgelegt.
+
+
+
+
+
+
+## Pipeline visualisieren
+
+Sie können die Pipeline visualisieren, aber nur nachdem sie die zentrale .Rmd-Datei mindestens einmal gerendert haben:
+
+```
+> targets::tar_glimpse()     # Nur Datenobjekte
+> targets::tar_visnetwork()  # Alle Objekte
+```
+
+
+
+
+
+## Troubleshooting
+
+Hilfreiche Befehle um Fehler zu lokalisieren und zu beheben.
+
+```
+> tar_progress()  # Zeigt Fortschritt und Fehler an
+> tar_meta()      # Alle Metadaten
+> tar_meta(fields = "warnings", complete_only = TRUE)  # Warnungen
+> tar_meta(fields = "error", complete_only = TRUE)  # Fehlermeldungen
+> tar_meta(fields = "seconds")  # Laufzeit der Targets
+```
+
+
+
+
+
+## Projektstruktur
+
+Die folgende Struktur erläutert die wichtigsten Bestandteile des Projekts. Während der Kompilierung werden weitere Ordner erstellt (`files/`, `temp/` `analysis` und `output/`). Die Endergebnisse werden alle in `output/` abgelegt.
+
+ 
+``` 
+.
+├── buttons                    # Buttons (nur optische Bedeutung)
+├── CHANGELOG.md               # Alle Änderungen
+├── compose.yaml               # Konfiguration für Docker
+├── config.toml                # Zentrale Konfigurations-Datei
+├── data                       # Datensätze, auf denen die Pipeline aufbaut
+├── delete_all_data.R          # Löscht den Datensatz und Zwischenschritte
+├── docker-build-image.sh      # Docker Image erstellen
+├── Dockerfile                 # Definition des Docker Images
+├── docker-run-project.sh      # Docker Image und Datensatz kompilieren
+├── functions                  # Wichtige Schritte der Pipeline
+├── gpg                        # Persönlicher Public GPG-Key für Seán Fobbe
+├── old                        # Alter Code aus früheren Versionen
+├── pipeline.Rmd               # Zentrale Definition der Pipeline
+├── README.md                  # Bedienungsanleitung
+├── reports                    # Markdown-Dateien
+├── requirements-python.txt    # Benötigte Python packages
+├── requirements-R.R           # Benötigte R packages
+├── requirements-system.txt    # Benötigte system dependencies
+├── run_project.R              # Kompiliert den gesamten Datensatz
+└── tex                        # LaTeX-Templates
+
+
+``` 
+
+ 
 ## Weitere Open Access Veröffentlichungen (Fobbe)
 
 Website — https://www.seanfobbe.de
@@ -87,8 +164,8 @@ Volltexte regulärer Publikationen  —  https://zenodo.org/communities/sean-fob
 
 
 
+
 ## Kontakt
 
 Fehler gefunden? Anregungen? Kommentieren Sie gerne im Issue Tracker auf GitHub oder schreiben Sie mir eine E-Mail an [fobbe-data@posteo.de](fobbe-data@posteo.de)
-
 
