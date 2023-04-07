@@ -606,10 +606,6 @@ zip(paste0("output/",
 dt.corona <- dt.bverfg[doc_id %in% keep.txt]
 
 
-#'## Funktion anzeigen: f.fast.freqtable
-
-#+ results = "asis"
-print(f.fast.freqtable)
 
 
 #'## Ignorierte Variablen
