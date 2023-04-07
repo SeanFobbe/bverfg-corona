@@ -9,6 +9,8 @@
 - ZIP-Archiv mit Source Code wird nun aus dem Git-Manifest generiert
 - README im Hinblick auf Docker überarbeitet
 - Speichern von temporären Dateien nun in speziellen Ordnern in files/, pdf/ und txt/
+- Option für automatische Löschung der Dateien aus vorherigen Runs zu Konfiguration hinzugefügt
+- Delete-Skript hinzugefügt
 
 
 
