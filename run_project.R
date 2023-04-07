@@ -13,7 +13,7 @@ library(RcppTOML)
 
 #'# Aufräumen
 
-source("delete_all_data.R")
+#source("delete_all_data.R")
 
 
 
