@@ -79,56 +79,6 @@ source("functions/f.future_multihashes.R")
 
 
 
-#'## Verzeichnis für Analyse-Ergebnisse und Diagramme definieren
-
-dir.analysis <- paste0(getwd(),
-                    "/analyse") 
-
-
-#'## Weitere Verzeichnisse definieren
-
-dirs <- c("output",
-          "temp",
-          "files",
-          "txt",
-          "pdf")
-
-
-
-#'## Dateien aus vorherigen Runs bereinigen
-
-unlink(dir.analysis,
-       recursive = TRUE)
-
-unlink(dirs,
-       recursive = TRUE)
-
-files.delete <- list.files(pattern = "\\.zip|\\.jpe?g|\\.png|\\.gif|\\.pdf|\\.bib|\\.csv|\\.spin\\.|\\.log|\\.html?",
-                           ignore.case = TRUE)
-
-
-unlink(files.delete)
-
-
-
-
-#'## Verzeichnisse anlegen
-
-dir.create(dir.analysis)
-
-lapply(dirs, dir.create)
-
-
-
-
-#'## Vollzitate statistischer Software schreiben
-knitr::write_bib(c(.packages()),
-                 "temp/packages.bib")
-
-
-
-
-
 #'## Allgemeine Konfiguration
 
 #+
@@ -177,6 +127,56 @@ prefix.figuretitle <- paste(config$project$shortname,
 
 #'### Quanteda-Optionen setzen
 quanteda_options(tokens_locale = config$quanteda$tokens_locale)
+
+
+
+
+
+#'## Dateien aus vorherigen Runs bereinigen
+
+
+
+if(config$debug$cleanrun == TRUE){
+
+    source("delete_all_data.R")
+
+    }
+
+
+
+
+#'## Verzeichnis für Analyse-Ergebnisse und Diagramme definieren
+
+dir.analysis <- paste0(getwd(),
+                    "/analyse") 
+
+
+#'## Weitere Verzeichnisse definieren
+
+dirs <- c("output",
+          "temp",
+          "files",
+          "txt",
+          "pdf")
+
+
+
+
+#'## Verzeichnisse anlegen
+
+dir.create(dir.analysis)
+
+lapply(dirs, dir.create)
+
+
+
+
+#'## Vollzitate statistischer Software schreiben
+knitr::write_bib(c(.packages()),
+                 "temp/packages.bib")
+
+
+
 
 
 
