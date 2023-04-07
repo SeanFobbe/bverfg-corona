@@ -79,6 +79,13 @@ source("functions/f.future_multihashes.R")
 
 
 
+#'## Verzeichnis für Analyse-Ergebnisse und Diagramme definieren
+
+dir.analysis <- paste0(getwd(),
+                    "/analyse") 
+
+
+
 #'## Allgemeine Konfiguration
 
 #+
@@ -144,11 +151,6 @@ if(config$debug$cleanrun == TRUE){
 
 
 
-
-#'## Verzeichnis für Analyse-Ergebnisse und Diagramme definieren
-
-dir.analysis <- paste0(getwd(),
-                    "/analyse") 
 
 
 #'## Weitere Verzeichnisse definieren
