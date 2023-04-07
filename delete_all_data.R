@@ -3,6 +3,8 @@
 
 delete1 <- c("files/",
              "temp/",
+             "pdf",
+             "txt",
              "analysis/",
              "analyse",
              "output/",
