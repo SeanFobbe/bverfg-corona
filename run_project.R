@@ -13,26 +13,14 @@ library(RcppTOML)
 
 #'# Aufräumen
 
-
-files.delete <- list.files(pattern = "\\.zip|\\.jpe?g|\\.png|\\.gif|\\.pdf|\\.bib|\\.csv|\\.spin\\.|\\.log|\\.html?",
-                           ignore.case = TRUE)
-
-unlink(files.delete)
-
-unlink("output", recursive = TRUE)
-unlink("analyse", recursive = TRUE)
-unlink("ANALYSE", recursive = TRUE)
-unlink("temp", recursive = TRUE)
-unlink("data", recursive = TRUE)
-
-
+source("delete_all_data.R")
 
 
 
 
 #+
-#'# Datensatz 
-#' 
+#'# Datensatz erstellen
+ 
 
 
 config <- parseTOML("config.toml")
