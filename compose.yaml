@@ -7,6 +7,6 @@ services:
     tty: true
     volumes:
       - .:/bverfg-corona:z
-      - ./gitconfig:/etc/gitconfig:z
+      - ./etc/gitconfig:/etc/gitconfig:z
     environment:
       - TZ=Europe/Berlin
