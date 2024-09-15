@@ -4,7 +4,7 @@
 
 - Vollständige Aktualisierung der Daten
 - R-Version und Rocker Image auf 4.4.0 aktualisiert (wegen CVE-2024-27322)
-- Verschiebung der Konfigurations-Dateien in etc/
+- Vereinfachung der Repository-Struktur mit Ordner etc/ für Konfigurationsdateien
 - Anpassung der Docker Compose-Konfiguration an Debian 11
 
 
