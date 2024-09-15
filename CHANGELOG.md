@@ -3,6 +3,13 @@
 ## Version \version
 
 - Vollständige Aktualisierung der Daten
+- Verschiebung der Konfigurations-Dateien in etc/
+- Anpassung der Docker Compose-Konfiguration an Debian 11
+
+
+## Version 2023-02-06
+
+- Vollständige Aktualisierung der Daten
 - Gesamte Laufzeitumgebung nun mit Docker versionskontrolliert
 - Funktionen werden nun nicht mehr aus einem Submodule bezogen, sondern sind direkt im Projekt verankert
 - Vereinfachung der Konfigurations-Datei
