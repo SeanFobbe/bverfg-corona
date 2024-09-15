@@ -3,6 +3,7 @@
 ## Version \version
 
 - Vollständige Aktualisierung der Daten
+- LIZENZÄNDERUNG: Source Code jetzt unter GNU General Public License Version 3 (GPLv3) oder später lizenziert
 - R-Version und Rocker Image auf 4.4.0 aktualisiert (wegen CVE-2024-27322)
 - Vereinfachung der Repository-Struktur mit Ordner etc/ für Konfigurationsdateien
 - Anpassung der Docker Compose-Konfiguration an Debian 11
