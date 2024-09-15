@@ -3,7 +3,7 @@ version: "3.7"
 services:
   bverfg-corona:
     container_name: bverfg-corona
-    image: bverfg-corona:4.2.2
+    image: bverfg-corona:4.4.0
     tty: true
     volumes:
       - .:/bverfg-corona
