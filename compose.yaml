@@ -1,4 +1,4 @@
-version: "3.9"
+version: "3.7"
 
 services:
   bverfg-corona:
@@ -6,7 +6,7 @@ services:
     image: bverfg-corona:4.2.2
     tty: true
     volumes:
-      - .:/bverfg-corona:z
-      - ./etc/gitconfig:/etc/gitconfig:z
+      - .:/bverfg-corona
+      - ./etc/gitconfig:/etc/gitconfig
     environment:
       - TZ=Europe/Berlin
