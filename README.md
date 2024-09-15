@@ -14,7 +14,6 @@ Alle mit diesem Skript erstellten Datensätze werden dauerhaft kostenlos und urh
 
  Primäre Endprodukte des Skripts (im Ordner 'output') sind folgende ZIP-Archive:
  
-
 - Alle Corona-relevanten Entscheidungen im PDF-Format
 - Alle Corona-relevanten Entscheidungen im TXT-Format
 - Alle Analyse-Ergebnisse (Tabellen als CSV, Grafiken als PDF und PNG)
@@ -128,25 +127,22 @@ Die folgende Struktur erläutert die wichtigsten Bestandteile des Projekts. Wäh
 ``` 
 .
 ├── buttons                    # Buttons (nur optische Bedeutung)
+├── BVerfG-Corona_CorpusCreation.R # Zentrale Definition der Pipeline
 ├── CHANGELOG.md               # Alle Änderungen
-├── compose.yaml               # Konfiguration für Docker
 ├── config.toml                # Zentrale Konfigurations-Datei
-├── data                       # Datensätze, auf denen die Pipeline aufbaut
 ├── delete_all_data.R          # Löscht den Datensatz und Zwischenschritte
 ├── docker-build-image.sh      # Docker Image erstellen
+├── docker.compose.yaml        # Konfiguration für Docker
 ├── Dockerfile                 # Definition des Docker Images
 ├── docker-run-project.sh      # Docker Image und Datensatz kompilieren
+├── etc                        # Weitere Konfigurationsdateien
 ├── functions                  # Wichtige Schritte der Pipeline
 ├── gpg                        # Persönlicher Public GPG-Key für Seán Fobbe
-├── old                        # Alter Code aus früheren Versionen
-├── pipeline.Rmd               # Zentrale Definition der Pipeline
+├── LICENSE                    # Die Lizenz für den Source Code
 ├── README.md                  # Bedienungsanleitung
-├── reports                    # Markdown-Dateien
-├── requirements-python.txt    # Benötigte Python packages
-├── requirements-R.R           # Benötigte R packages
-├── requirements-system.txt    # Benötigte system dependencies
 ├── run_project.R              # Kompiliert den gesamten Datensatz
 └── tex                        # LaTeX-Templates
+
 
 
 ``` 
@@ -167,5 +163,5 @@ Volltexte regulärer Publikationen  —  https://zenodo.org/communities/sean-fob
 
 ## Kontakt
 
-Fehler gefunden? Anregungen? Kommentieren Sie gerne im Issue Tracker auf GitHub oder schreiben Sie mir eine E-Mail an [fobbe-data@posteo.de](fobbe-data@posteo.de)
+Fehler gefunden? Anregungen? Kommentieren Sie gerne im Issue Tracker auf GitHub oder kontaktieren Sie mich via https://www.seanfobbe.de
 
